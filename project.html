@@ -1,0 +1,29 @@
+<div class="grid-x grid-margin-x">
+    <div class="large-12 cell">
+        <div class="grid-y grid-frame grid-frame-auto">
+            <div class="cell shrink">
+                <fdp-header-banner [form]="topBannerForm" [disabled]="disabled" [BannerInfo]="(bannerInfo$|async)?.data"></fdp-header-banner>
+            </div>
+
+            <div *ngIf="(operations$|async)?.data?.length > 0" class="cell auto fdpTable">
+                <fdp-table [settings]="settings" [data]="(operations$|async)?.data" (dataClick)="cellDataClicked($event)" [isCrossFilterActive]="true"></fdp-table>
+            </div>
+
+            <div *ngIf="(operations$|async)?.data?.length == 0" class="cell auto text-center fdpTable">
+                <span> No Operations have been created for the Project </span>
+            </div>
+
+            <div class="cell shrink ">
+                <div class="grid-x grid-margin-x align-middle">                    
+                    <div class="large-12 cell">
+                        <div class="form-button-group float-right">
+                            <a class="button secondary" (click)="createOperation()">Create a New Operation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+ 
