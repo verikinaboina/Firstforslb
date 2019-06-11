@@ -1,23 +1,53 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img alt="this is village button" src="http://www.latestseotutorial.com/wp-content/uploads/2016/12/desktopimages-640x360.png"> <br/>
-  <iframe width="550" height="350" src="https://youtu.be/cjoz0FZ-wWs ">
-</iframe>
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
+<header>
+  <div class="content-header">
+    <h1 class="header-text">
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+</header>
+
+<body class="content-body">
+  <img alt="this is village button"  class="header-text"
+    src="http://www.latestseotutorial.com/wp-content/uploads/2016/12/desktopimages-640x360.png"> <br />
+  <iframe width="560" height="315"  class="header-text" src="https://www.youtube.com/embed/Zc7SeDL-0uE" frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>
+
+  <h2>Here are some links to help you start: </h2>
+  <ul class="header-text">
+
     <h2><a target="_blank" rel="noopener" href="https://www.youtube.com/"> {{ appContent.labels.Youtube }} </a></h2>
-  </li> 
-  <li>
+
     <h2><a target="_blank" rel="noopener" href="https://gaana.com/">{{ appContent.labels.Gaana }} </a></h2>
-  </li>
-  <li>
+
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">{{ appContent.labels.angularBlog }}</a></h2>
-  </li>
-</ul>
+
+  </ul>
+
+  <div> Months :
+    <select (change) = "changemonths($event)">
+      <option *ngFor="let i of months">{{i}}</option>
+    </select>
+  </div>
+  <br />
+  <div>
+    <span *ngIf="isavailable; else condition2">
+      Condition is valid.
+    </span>
+    <ng-template #condition1>Condition is valid</ng-template>
+    <ng-template #condition2>Condition is invalid</ng-template>
+  </div>
+
+  <a class="">
+    <button (click)="myClickFunction($event)">
+      Click Me
+    </button>
+  </a>
+</body>
+
+<footer class="content-footer header-text">
+  <p> this is footer content. We can define all the footer liks and content.</p>
+</footer>
 
 <router-outlet></router-outlet>
