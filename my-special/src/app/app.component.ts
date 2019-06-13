@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { appContent } from './app.content';
+import { ModalService } from './shared/_services/modal.sevices';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +11,29 @@ export class AppComponent implements OnInit {
   title = 'turbo';
   public appContent: any;
   isavailable = false;
+  private bodyText: string;
 
+  constructor(private modalService: ModalService) {
+  }
   ngOnInit() {
     this.appContent = appContent.appComponent;
+
+    this.bodyText = 'This text can be updated in modal 1';
+
+
   }
 
-  // myClickFunction(event: any) {
-  //   //just added console.log which will display the event details in browser on click of the button.
-  //   alert("Button is clicked");
-  //   console.log(event);
-  // }
+  openModal(id: string){
+    this.modalService.open(id);
+  }
+  
+  closeModal(id: string){
+    this.modalService.close(id);
+  }
 
-   myClickFunction(event) {
-      this.isavailable = false;
-   }
+  myClickFunction(event) {
+    this.isavailable = false;
+  }
 
   //array of months.
   months = ["January", "Feburary", "March", "April",
@@ -33,4 +43,5 @@ export class AppComponent implements OnInit {
   changemonths(event) {
     alert("Changed month from the Dropdown");
   }
+
 }
