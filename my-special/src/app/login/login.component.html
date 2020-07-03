@@ -1,0 +1,30 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header class="header-text">
+            <mat-card-title>Customer log in</mat-card-title>
+        </mat-card-header>
+        <form class="example-form"  [formGroup]="form" (submit)="submitForm()" novalidate>
+            <mat-form-field class="example-full-width">
+                <mat-label>UserName</mat-label>
+                <input matInput placeholder="Enter User Name" formControlName="UserName" value="">
+                <mat-error *ngIf="form.controls['UserName'].invalid">
+                       User name is required    
+                </mat-error>
+            </mat-form-field>
+          
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="Enter Password" formControlName="Password" type="password" value="">
+                <mat-error *ngIf="form.controls['Password'].invalid">
+                    Password is required    
+             </mat-error>
+            </mat-form-field>
+          
+            <button mat-raised-button type="submit" [disabled]="!form.valid" style="width: 100%;" 
+                color="primary">LogIn</button>
+          
+            <a class="newUserClass" href="" routerLink="./register">New user</a>
+            <a class="forgetPasswordClass" [routerLink]="['./forgot-password']" href="">Forget password</a>
+        </form>
+    </mat-card>
+</div>

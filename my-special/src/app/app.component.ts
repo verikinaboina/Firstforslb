@@ -8,40 +8,9 @@ import { ModalService } from './shared/_services/modal.sevices';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'turbo';
-  public appContent: any;
-  isavailable = false;
-  private bodyText: string;
 
-  constructor(private modalService: ModalService) {
+  constructor() {
   }
-  ngOnInit() {
-    this.appContent = appContent.appComponent;
-
-    this.bodyText = 'This text can be updated in modal 1';
-
-
-  }
-
-  openModal(id: string){
-    this.modalService.open(id);
-  }
-  
-  closeModal(id: string){
-    this.modalService.close(id);
-  }
-
-  myClickFunction(event) {
-    this.isavailable = false;
-  }
-
-  //array of months.
-  months = ["January", "Feburary", "March", "April",
-    "May", "June", "July", "August", "September",
-    "October", "November", "December"];
-
-  changemonths(event) {
-    alert("Changed month from the Dropdown");
-  }
+  ngOnInit() {}
 
 }
