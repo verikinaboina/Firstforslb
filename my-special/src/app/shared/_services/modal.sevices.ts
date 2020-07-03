@@ -1,6 +1,6 @@
 export class ModalService {
     private modals: any[] = [];
-
+    userName: string;
     add(modal: any) {
         // add modal to array of active modals
         this.modals.push(modal);
@@ -21,5 +21,13 @@ export class ModalService {
         // close modal specified by id
         let modal: any = this.modals.filter(x => x.id === id)[0];
         modal.close();
+    }
+
+    setUserName(val) {
+        this.userName = val;
+    }
+
+    getUserName() {
+        return this.userName;
     }
 }
